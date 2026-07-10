@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+  body {
+    @apply text-slate-800 antialiased bg-[#F8F9FA];
+  }
+}
+
+/* Swiper custom styles */
+.swiper-pagination-bullet {
+  background: #cbd5e1 !important;
+  opacity: 1 !important;
+}
+.swiper-pagination-bullet-active {
+  background: #4B6BFB !important;
+}
