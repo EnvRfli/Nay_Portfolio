@@ -20,28 +20,28 @@ export function Contact() {
 
             <div className="flex flex-wrap gap-4">
               <a
-                href="#"
+                href="https://wa.me/+6282234533262"
                 className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white px-6 py-3 rounded-full transition-colors font-medium border border-white/10"
               >
                 <FaWhatsapp className="w-5 h-5" />
                 082 234 533 262
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/nazilla_azizah/"
                 className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white px-6 py-3 rounded-full transition-colors font-medium border border-white/10"
               >
                 <FaInstagram className="w-5 h-5" />
                 nazilla_azizah
               </a>
               <a
-                href="#"
+                href="mailto:azizahnazillaandiz@gmail.com"
                 className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white px-6 py-3 rounded-full transition-colors font-medium border border-white/10"
               >
                 <FaEnvelope className="w-5 h-5" />
                 azizahnazillaandiz@gmail.com
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/in/nazilla-andiz-azizah-91b690248/"
                 className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white px-6 py-3 rounded-full transition-colors font-medium border border-white/10"
               >
                 <FaLinkedin className="w-5 h-5" />

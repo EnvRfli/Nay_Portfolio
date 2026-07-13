@@ -1,27 +1,35 @@
 import { useState } from "react"
 import { ServiceCard } from "./ServiceCard"
+import ComputerImg from "../../assets/computer.png"
+import LaptopImg from "../../assets/laptop.png"
+import PhoneLeftImg from "../../assets/phone_left.png"
+import PhoneRightImg from "../../assets/phone_right.png"
 
 const SERVICES_DATA = [
   {
     id: 0,
-    bgGradient: "bg-gradient-to-br from-[#E1C4FF] to-[#D5ADFF]",
+    bgGradient: "bg-gradient-to-br from-[#DAC2FE] to-[#CEADFF]",
     title: "Dashboard Admin",
     description: "Website untuk mengelola data dan sistem dengan mudah",
     align: "left" as const,
+    imageSrc: ComputerImg,
   },
   {
     id: 1,
-    bgGradient: "bg-gradient-to-br from-[#8C7DFF] to-[#6A52FF]",
+    bgGradient: "bg-gradient-to-br from-[#8F70FF] to-[#704FE6]",
     title: "Aplikasi Mobile",
     description: "Aplikasi ponsel untuk layanan cepat dan praktis kapan saja",
     align: "center" as const,
+    imageSrc: PhoneLeftImg,
+    imageSrc2: PhoneRightImg,
   },
   {
     id: 2,
-    bgGradient: "bg-gradient-to-br from-[#FFD382] to-[#FFA842]",
+    bgGradient: "bg-gradient-to-br from-[#FFD25D] to-[#FFBB5D]",
     title: "Website Publik",
     description: "Situs informasi dan layanan yang sederhana dan mudah diakses",
     align: "right" as const,
+    imageSrc: LaptopImg,
   }
 ]
 
