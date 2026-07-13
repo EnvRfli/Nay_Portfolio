@@ -1,63 +1,48 @@
 import { FaWhatsapp, FaInstagram, FaEnvelope, FaLinkedin } from "react-icons/fa"
+import ArrowContact from "../../assets/arrow_contact.svg"
 
 export function Contact() {
   return (
     <section id="kontak" className="py-24 bg-white relative">
       <div className="container mx-auto">
-        <div className="bg-primary-blue rounded-[3rem] p-12 md:p-20 relative overflow-hidden shadow-2xl">
-          {/* Background Decorative Orange Swirl */}
-          <div className="absolute right-0 top-0 h-full w-1/2 pointer-events-none overflow-hidden">
-            <svg
-              className="absolute right-[-20%] top-[-20%] w-[140%] h-[140%] text-accent-orange opacity-90"
-              viewBox="0 0 400 400"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M300 0C300 150 150 300 0 300"
-                stroke="currentColor"
-                strokeWidth="40"
-                strokeLinecap="round"
-              />
-              <path
-                d="M400 100C300 200 200 150 150 50"
-                stroke="currentColor"
-                strokeWidth="30"
-                strokeLinecap="round"
-              />
-            </svg>
+        <div className="bg-gradient-to-br from-[#647ED4] to-[#4966D4] rounded-[2rem] p-12 md:p-20 relative overflow-hidden shadow-2xl">
+          {/* Geometric Background Shapes */}
+          <div className="absolute inset-0 pointer-events-none z-0">
+            <div className="absolute top-[60%] -right-[10%] w-[75%] h-[250%] bg-[#C4C4C4] opacity-10 rotate-[35deg] origin-top-right transform transition-transform duration-1000" />
+            <div className="absolute top-[100%] -right-[-35%] w-[200%] h-[250%] bg-[#C4C4C4] opacity-10 rotate-[35deg] origin-top-right transform transition-transform duration-1000" />
+            <img src={ArrowContact} alt="" className="absolute right-[3%] h-[120%] w-auto object-contain" />
           </div>
 
           <div className="relative z-10 max-w-2xl">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight mb-12">
-              Mari <span className="text-accent-orange">berkolaborasi</span> dan wujudkan project luar biasa <span className="text-accent-orange">bersama</span>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-12" style={{ lineHeight: 1.7 }}>
+              Mari <span className="bg-gradient-to-b from-[#FFD05D] to-[#FFD05D] bg-clip-text text-transparent">berkolaborasi</span> dan wujudkan project luar biasa <span className="bg-gradient-to-r from-[#FFD05D] to-[#FFD05D] bg-clip-text text-transparent">bersama</span>
             </h2>
 
             <div className="flex flex-wrap gap-4">
               <a
                 href="#"
-                className="inline-flex items-center gap-3 bg-white/20 hover:bg-white/30 backdrop-blur-md text-white px-6 py-3 rounded-full transition-colors font-medium border border-white/10"
+                className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white px-6 py-3 rounded-full transition-colors font-medium border border-white/10"
               >
                 <FaWhatsapp className="w-5 h-5" />
                 082 234 533 262
               </a>
               <a
                 href="#"
-                className="inline-flex items-center gap-3 bg-white/20 hover:bg-white/30 backdrop-blur-md text-white px-6 py-3 rounded-full transition-colors font-medium border border-white/10"
+                className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white px-6 py-3 rounded-full transition-colors font-medium border border-white/10"
               >
                 <FaInstagram className="w-5 h-5" />
                 nazilla_azizah
               </a>
               <a
                 href="#"
-                className="inline-flex items-center gap-3 bg-white/20 hover:bg-white/30 backdrop-blur-md text-white px-6 py-3 rounded-full transition-colors font-medium border border-white/10"
+                className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white px-6 py-3 rounded-full transition-colors font-medium border border-white/10"
               >
                 <FaEnvelope className="w-5 h-5" />
                 azizahnazillaandiz@gmail.com
               </a>
               <a
                 href="#"
-                className="inline-flex items-center gap-3 bg-white/20 hover:bg-white/30 backdrop-blur-md text-white px-6 py-3 rounded-full transition-colors font-medium border border-white/10"
+                className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white px-6 py-3 rounded-full transition-colors font-medium border border-white/10"
               >
                 <FaLinkedin className="w-5 h-5" />
                 Nazilla Andiz Azizah

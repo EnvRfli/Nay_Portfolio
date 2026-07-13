@@ -69,7 +69,7 @@ export function ProjectCard({ project, isAdmin = false }: ProjectCardProps) {
             <p className="text-xs font-semibold text-amber-500 uppercase tracking-wider mb-4">
               {project.company_name}
             </p>
-            <p className="text-slate-300 line-clamp-4 text-sm mb-6 flex-1 leading-relaxed">{project.description}</p>
+            <p className="text-slate-300 line-clamp-4 text-sm mb-6 leading-relaxed">{project.description}</p>
 
             <div className="mt-auto">
               <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-[#26263B] transition-colors">
