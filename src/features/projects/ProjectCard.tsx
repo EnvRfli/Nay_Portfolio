@@ -64,7 +64,7 @@ export function ProjectCard({ project, isAdmin = false }: ProjectCardProps) {
           )}
 
           {/* Slide-up overlay */}
-          <div className="absolute inset-x-0 bottom-0 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 ease-out group-hover:duration-500 transform-gpu bg-[#26263B] rounded-2xl p-6 z-20 flex flex-col shadow-2xl h-[280px]">
+          <div className="absolute inset-x-0 bottom-0 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 ease-out group-hover:duration-500 group-hover:ease-[cubic-bezier(0.34,1.4,0.64,1)] transform-gpu bg-[#26263B] rounded-2xl p-6 z-20 flex flex-col shadow-2xl h-[280px]">
             <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
             <p className="text-xs font-semibold text-amber-500 uppercase tracking-wider mb-4">
               {project.company_name}
