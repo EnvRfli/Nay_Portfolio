@@ -21,15 +21,15 @@ export function DetailStyleGuide({ project }: { project: Project }) {
   const fontStyle = project.font_family ? { fontFamily: `"${project.font_family}", sans-serif` } : {};
 
   return (
-    <div className="w-full py-16 relative overflow-hidden bg-[#F4F5F7] mb-12">
+    <div className="w-full py-32 relative overflow-hidden bg-[#F4F5F7]">
       {/* Huge background text 'Aa' */}
-      <div className="absolute top-0 left-0 -ml-10 -mt-20 pointer-events-none opacity-5">
+      <div className="absolute top-0 left-0 -ml-16 -mt-25 pointer-events-none opacity-5">
         <span className="text-[30rem] font-bold leading-none select-none text-[#26263B]">Aa</span>
       </div>
 
-      <div className="container mx-auto px-6 max-w-7xl relative z-10 flex flex-col md:flex-row gap-16 md:gap-24">
+      <div className="container mx-auto px-6 max-w-7xl relative z-10 flex flex-col lg:flex-row justify-between gap-12">
         {/* Font Section */}
-        <div className="flex-1">
+        <div className="w-full lg:w-5/12">
           {project.font_family ? (
             <>
               <h2 className="text-4xl md:text-5xl font-bold text-[#26263B] mb-4" style={fontStyle}>
@@ -50,20 +50,23 @@ export function DetailStyleGuide({ project }: { project: Project }) {
 
         {/* Colors Section */}
         {project.main_colors && project.main_colors.length > 0 && (
-          <div className="flex-1 flex gap-8 md:gap-12 flex-wrap items-center justify-center md:justify-end mt-12 md:mt-0">
+          <div className="w-full lg:w-7/12 flex gap-1 lg:gap-2 flex-wrap items-center justify-center lg:justify-end mt-12 lg:mt-0">
             {project.main_colors.map((color, idx) => {
               // Map index to a label based on the mock image (Main, Secondary, Auxiliary)
               const labels = ["Main Color", "Secondary Color", "Auxiliary Color", "Accent Color"];
               const label = labels[idx] || `Color ${idx + 1}`;
 
               return (
-                <div key={idx} className="flex flex-col items-center">
+                <div
+                  key={idx}
+                  className="flex flex-col items-center p-3 lg:p-4 rounded-[2rem] transition-all duration-300 hover:bg-white hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] cursor-default"
+                >
                   <div
-                    className="w-24 h-24 md:w-32 md:h-32 rounded-3xl shadow-lg mb-4"
+                    className="w-24 h-24 lg:w-28 lg:h-28 rounded-[2rem] mb-4 transition-transform duration-300"
                     style={{ backgroundColor: color, boxShadow: `0 10px 30px -10px ${color}` }}
                   />
-                  <p className="text-primary-blue text-sm md:text-base font-medium mb-1">{label}</p>
-                  <p className="text-slate-600 text-sm md:text-base uppercase tracking-wider">{color}</p>
+                  <p className="text-primary-blue text-sm lg:text-base font-medium mb-1">{label}</p>
+                  <p className="text-slate-600 text-xs lg:text-sm uppercase tracking-wider">{color}</p>
                 </div>
               )
             })}

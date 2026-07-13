@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
@@ -12,35 +13,40 @@ import { Button } from "../../components/ui/Button"
 import { MOCK_PROJECTS } from "../../lib/mockData"
 import { useAdmin } from "../../contexts/AdminContext"
 import { ProjectFormModal } from "./admin/ProjectFormModal"
+import ArrowService from "../../assets/arrow_service.svg"
 
 export function Projects() {
+  const navigate = useNavigate();
   const { projects: fetchedProjects, loading } = useProjects();
   const { isAdmin } = useAdmin();
   const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
-  
+  const [isBeginning, setIsBeginning] = useState(true);
+  const [isEnd, setIsEnd] = useState(false);
+
   // Modal states
   const [isFormModalOpen, setFormModalOpen] = useState(false);
-  
+
   // Use fetched projects if available, otherwise mock data for preview
   const projects = fetchedProjects.length > 0 ? fetchedProjects : MOCK_PROJECTS;
 
   return (
-    <section id="project" className="py-24 bg-white relative">
-      <div className="container mx-auto px-6 max-w-7xl">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+    <section id="project" className="py-24 relative overflow-hidden">
+      {/* Background Shape */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <div className="absolute top-1/4 -left-20 w-[300px] md:w-[400px] lg:w-[600px] h-[300px] md:h-[400px] lg:h-[600px] bg-gradient-to-r from-[#647ED4] to-[#4966D4] rounded-full blur-[200px] opacity-10" />
+        <img src={ArrowService} alt="" className="absolute top-0 left-0 w-[100px] md:w-[150px] lg:w-[200px]" />
+      </div>
+      <div className="container mx-auto px-6 max-w-7xl relative z-10">
+        <div className="flex flex-col md:flex-row md:items-center justify-between mb-16 gap-6">
           <div className="max-w-2xl">
-            <h2 className="text-sm font-bold text-accent-orange uppercase tracking-wider mb-3">
-              Project Saya
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-dark-text mb-6 leading-tight">
+              Jelajahi Hasil <span className="bg-gradient-to-r from-[#647ED4] to-[#4966D4] bg-clip-text text-transparent">Project Saya</span>
             </h2>
-            <h3 className="text-3xl md:text-5xl font-bold text-[#26263B] mb-6 leading-tight">
-              Eksplorasi Karya <br />
-              <span className="text-slate-400">Terbaik Saya</span>
-            </h3>
-            <p className="text-slate-600 text-lg md:text-xl">
-              Beberapa hasil karya yang telah saya kerjakan dengan penuh dedikasi.
+            <p className="text-slate-600 text-md md:text-lg" style={{ lineHeight: 2 }}>
+              Saya merancang desain UI/UX berbasis riset untuk menciptakan pengalaman yang intuitif, estetis, dan mendukung tujuan bisnis.
             </p>
           </div>
-          
+
           <div className="flex items-center gap-4">
             {isAdmin && (
               <Button onClick={() => setFormModalOpen(true)} className="flex items-center gap-2">
@@ -48,22 +54,14 @@ export function Projects() {
                 Tambah Project
               </Button>
             )}
-            
-            {/* Custom Navigation Buttons */}
-            <div className="flex items-center gap-3">
-              <button 
-                onClick={() => swiperInstance?.slidePrev()}
-                className="w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-50 hover:text-primary-blue hover:border-primary-blue transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                <ChevronLeft size={24} />
-              </button>
-              <button 
-                onClick={() => swiperInstance?.slideNext()}
-                className="w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-50 hover:text-primary-blue hover:border-primary-blue transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                <ChevronRight size={24} />
-              </button>
-            </div>
+
+            <Button 
+              size="lg" 
+              onClick={() => navigate('/projects')}
+              className="bg-gradient-to-r from-[#647ED4] to-[#4966D4] text-white border-0 hover:opacity-90 transition-opacity"
+            >
+              Lihat Semua Project
+            </Button>
           </div>
         </div>
 
@@ -77,7 +75,15 @@ export function Projects() {
               modules={[Navigation]}
               spaceBetween={24}
               slidesPerView={1.2}
-              onSwiper={setSwiperInstance}
+              onSwiper={(swiper) => {
+                setSwiperInstance(swiper);
+                setIsBeginning(swiper.isBeginning);
+                setIsEnd(swiper.isEnd);
+              }}
+              onSlideChange={(swiper) => {
+                setIsBeginning(swiper.isBeginning);
+                setIsEnd(swiper.isEnd);
+              }}
               breakpoints={{
                 640: {
                   slidesPerView: 2.2,
@@ -86,7 +92,7 @@ export function Projects() {
                   slidesPerView: 3,
                 }
               }}
-              className="!pb-12"
+              className="!pb-6"
             >
               {projects.map((project) => (
                 <SwiperSlide key={project.id}>
@@ -94,13 +100,31 @@ export function Projects() {
                 </SwiperSlide>
               ))}
             </Swiper>
+
+            {/* Custom Navigation Buttons (Bottom Center) */}
+            <div className="flex items-center justify-center gap-4 mt-8">
+              <button
+                onClick={() => swiperInstance?.slidePrev()}
+                disabled={isBeginning}
+                className="w-14 h-14 rounded-full flex items-center justify-center text-white bg-gradient-to-r from-[#647ED4] to-[#4966D4] transition-all hover:scale-105 hover:shadow-lg disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:shadow-none"
+              >
+                <ChevronLeft size={28} />
+              </button>
+              <button
+                onClick={() => swiperInstance?.slideNext()}
+                disabled={isEnd}
+                className="w-14 h-14 rounded-full flex items-center justify-center text-white bg-gradient-to-r from-[#647ED4] to-[#4966D4] transition-all hover:scale-105 hover:shadow-lg disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:shadow-none"
+              >
+                <ChevronRight size={28} />
+              </button>
+            </div>
           </div>
         )}
       </div>
 
-      <ProjectFormModal 
-        isOpen={isFormModalOpen} 
-        onClose={() => setFormModalOpen(false)} 
+      <ProjectFormModal
+        isOpen={isFormModalOpen}
+        onClose={() => setFormModalOpen(false)}
         project={null}
       />
     </section>
