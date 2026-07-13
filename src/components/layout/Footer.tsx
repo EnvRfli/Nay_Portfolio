@@ -1,5 +1,6 @@
 import ArrowTopRight from "../../assets/arrow_footer_top_right.svg"
 import ArrowBottomLeft from "../../assets/arrow_footer_bottom_left.svg"
+import { Link } from "react-router-dom"
 
 export function Footer() {
   return (
@@ -26,10 +27,10 @@ export function Footer() {
           </p>
 
           <div className="flex flex-wrap justify-center md:justify-start gap-4">
-            <a href="#beranda" className="px-6 py-2.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-sm font-medium">Beranda</a>
-            <a href="#layanan" className="px-6 py-2.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-sm font-medium">Layanan</a>
-            <a href="#project" className="px-6 py-2.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-sm font-medium">Project</a>
-            <a href="#kontak" className="px-6 py-2.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-sm font-medium">Kontak</a>
+            <Link to="/#beranda" className="px-6 py-2.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-sm font-medium">Beranda</Link>
+            <Link to="/#layanan" className="px-6 py-2.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-sm font-medium">Layanan</Link>
+            <Link to="/#project" className="px-6 py-2.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-sm font-medium">Project</Link>
+            <Link to="/#kontak" className="px-6 py-2.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-sm font-medium">Kontak</Link>
           </div>
         </div>
       </div>
