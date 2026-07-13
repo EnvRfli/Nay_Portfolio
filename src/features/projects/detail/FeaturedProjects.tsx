@@ -2,6 +2,7 @@ import { useProjects } from "../../../hooks/useProjects"
 import { ProjectSimpleCard } from "../ProjectSimpleCard"
 import { Button } from "../../../components/ui/Button"
 import { useNavigate } from "react-router-dom"
+import { ArrowRight } from "lucide-react"
 
 interface FeaturedProjectsProps {
   currentProjectId: string;
@@ -43,9 +44,12 @@ export function FeaturedProjects({ currentProjectId }: FeaturedProjectsProps) {
             <Button
               size="lg"
               onClick={() => navigate('/projects')}
-              className="bg-gradient-to-r from-[#647ED4] to-[#4966D4] text-white border-0 hover:opacity-90 transition-opacity"
+              className="group bg-gradient-to-r from-[#647ED4] to-[#4966D4] text-white border-0 hover:opacity-90 transition-all flex items-center"
             >
               Lihat Semua Project
+              <div className="flex items-center justify-center w-0 opacity-0 group-hover:w-5 group-hover:ml-2 group-hover:opacity-100 transition-all duration-300 overflow-hidden">
+                <ArrowRight className="w-5 h-5 shrink-0" />
+              </div>
             </Button>
           </div>
         </div>

@@ -50,7 +50,7 @@ export function DetailStyleGuide({ project }: { project: Project }) {
 
         {/* Colors Section */}
         {project.main_colors && project.main_colors.length > 0 && (
-          <div className="w-full lg:w-7/12 flex gap-1 lg:gap-2 flex-wrap items-center justify-center lg:justify-end mt-12 lg:mt-0">
+          <div className="w-full lg:w-7/12 flex gap-3 lg:gap-4 flex-wrap items-center justify-center lg:justify-end mt-12 lg:mt-0">
             {project.main_colors.map((color, idx) => {
               // Map index to a label based on the mock image (Main, Secondary, Auxiliary)
               const labels = ["Main Color", "Secondary Color", "Auxiliary Color", "Accent Color"];
@@ -59,14 +59,14 @@ export function DetailStyleGuide({ project }: { project: Project }) {
               return (
                 <div
                   key={idx}
-                  className="flex flex-col items-center p-3 lg:p-4 rounded-[2rem] transition-all duration-300 hover:bg-white hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] cursor-default"
+                  className="flex flex-col items-center p-3 lg:p-4 rounded-[1rem] transition-all duration-300 hover:bg-white hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] cursor-default"
                 >
                   <div
-                    className="w-24 h-24 lg:w-28 lg:h-28 rounded-[2rem] mb-4 transition-transform duration-300"
+                    className="w-32 h-32 lg:w-38 lg:h-42 rounded-[2rem] mb-4 transition-transform duration-300"
                     style={{ backgroundColor: color, boxShadow: `0 10px 30px -10px ${color}` }}
                   />
-                  <p className="text-primary-blue text-sm lg:text-base font-medium mb-1">{label}</p>
-                  <p className="text-slate-600 text-xs lg:text-sm uppercase tracking-wider">{color}</p>
+                  <p className="text-primary-blue text-md lg:text-base font-medium mb-2">{label}</p>
+                  <p className="text-slate-600 text-sm lg:text-md uppercase tracking-wider">{color}</p>
                 </div>
               )
             })}

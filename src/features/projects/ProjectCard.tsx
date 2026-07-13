@@ -36,7 +36,7 @@ export function ProjectCard({ project, isAdmin = false }: ProjectCardProps) {
               <img
                 src={project.image_url}
                 alt={project.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-700 ease-out transform-gpu group-hover:scale-105"
               />
             ) : (
               <div className="w-full h-full flex items-center justify-center text-slate-400">
@@ -64,7 +64,7 @@ export function ProjectCard({ project, isAdmin = false }: ProjectCardProps) {
           )}
 
           {/* Slide-up overlay */}
-          <div className="absolute inset-x-0 bottom-0 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] bg-[#26263B] rounded-2xl p-6 z-20 flex flex-col shadow-2xl h-[280px]">
+          <div className="absolute inset-x-0 bottom-0 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 ease-out group-hover:duration-500 transform-gpu bg-[#26263B] rounded-2xl p-6 z-20 flex flex-col shadow-2xl h-[280px]">
             <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
             <p className="text-xs font-semibold text-amber-500 uppercase tracking-wider mb-4">
               {project.company_name}

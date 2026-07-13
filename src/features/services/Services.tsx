@@ -58,6 +58,7 @@ export function Services() {
               key={service.id}
               {...service}
               isActive={activeId === service.id}
+              activeId={activeId}
               onHover={() => setActiveId(service.id)}
               onLeave={() => setActiveId(null)}
             />
