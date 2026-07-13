@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom"
 import { useProjects } from "../../../hooks/useProjects"
 import { ProjectSimpleCard } from "../ProjectSimpleCard"
 import { Button } from "../../../components/ui/Button"
+import { useNavigate } from "react-router-dom"
 
 interface FeaturedProjectsProps {
   currentProjectId: string;
@@ -9,6 +9,7 @@ interface FeaturedProjectsProps {
 
 export function FeaturedProjects({ currentProjectId }: FeaturedProjectsProps) {
   const { projects, loading } = useProjects()
+  const navigate = useNavigate();
 
   // Filter out current project and take up to 3
   const featured = projects
@@ -33,17 +34,19 @@ export function FeaturedProjects({ currentProjectId }: FeaturedProjectsProps) {
             <h2 className="text-3xl md:text-4xl font-bold text-[#26263B] mb-6 leading-tight">
               Pilihan Project <span className="text-[#5974DD]">Unggulan</span>
             </h2>
-            <p className="text-slate-600 text-lg md:text-xl">
+            <p className="text-slate-600 text-md md:text-lg" style={{ lineHeight: 2 }}>
               Hasil kerja terbaik telah dipilih untuk Anda. Temukan kreativitas yang menarik dan solusi yang relevan dalam setiap proyek
             </p>
           </div>
 
           <div className="shrink-0">
-            <Link to="/projects">
-              <Button className="bg-[#5974DD] hover:bg-blue-600 text-white rounded-full px-8 py-3 font-medium">
-                Lihat Semua Project
-              </Button>
-            </Link>
+            <Button
+              size="lg"
+              onClick={() => navigate('/projects')}
+              className="bg-gradient-to-r from-[#647ED4] to-[#4966D4] text-white border-0 hover:opacity-90 transition-opacity"
+            >
+              Lihat Semua Project
+            </Button>
           </div>
         </div>
 

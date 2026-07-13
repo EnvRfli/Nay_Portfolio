@@ -34,7 +34,7 @@ export function Services() {
         <div className="flex flex-col lg:flex-row gap-12 mb-16">
           <div className="lg:w-1/3">
             <h2 className="text-3xl lg:text-4xl font-bold text-dark-text" style={{ lineHeight: 1.8 }}>
-              <span className="text-primary-blue">Layanan</span> yang<br />Ditawarkan
+              <span className="bg-gradient-to-r from-[#647ED4] to-[#4966D4] bg-clip-text text-transparent pt-2 pb-3">Layanan</span> yang<br />Ditawarkan
             </h2>
           </div>
           <div className="lg:w-2/3 flex items-center">
