@@ -16,6 +16,7 @@ export default {
         },
         dark: {
           navy: '#2A2A35',
+          text: '#344054',
         }
       },
       fontFamily: {

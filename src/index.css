@@ -10,7 +10,7 @@
     overflow-x: hidden;
   }
   body {
-    @apply text-slate-800 antialiased bg-[#F8F9FA];
+    @apply text-dark-text antialiased bg-white;
   }
 }
 

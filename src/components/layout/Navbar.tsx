@@ -16,7 +16,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const { isAdmin, isEasterEggFound, setEasterEggFound, login, logout } = useAdmin()
   const { showToast } = useToast()
-  
+
   const [showLoginModal, setShowLoginModal] = useState(false)
   const [adminKey, setAdminKey] = useState("")
 
@@ -67,47 +67,52 @@ export function Navbar() {
             <span className="text-accent-orange">ku</span>
           </a>
 
-          <div className="hidden md:flex items-center space-x-10">
+          <div className="hidden md:flex items-center space-x-16">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setActive(link.name)}
                 className={cn(
-                  "text-sm font-medium transition-colors relative",
-                  active === link.name ? "text-primary-blue" : "text-slate-600 hover:text-slate-900"
+                  "text-md transition-colors relative",
+                  active === link.name
+                    ? "font-bold bg-gradient-to-r from-[#647ED4] to-[#4966D4] bg-clip-text text-transparent"
+                    : "font-medium text-slate-600 hover:text-dark-text"
                 )}
               >
                 {link.name}
                 {active === link.name && (
-                  <span className="absolute -bottom-2 left-1/2 w-4 h-[3px] bg-primary-blue rounded-full -translate-x-1/2" />
+                  <span className="absolute -bottom-2 left-1/2 w-4 h-[3px] rounded-full -translate-x-1/2" style={{ background: 'linear-gradient(to right, #647ED4, #4966D4)' }} />
                 )}
               </a>
             ))}
-            
+
             {/* Easter Egg Button */}
             {isEasterEggFound && !isAdmin && (
-              <button 
+              <button
                 onClick={() => setShowLoginModal(true)}
                 className="text-sm font-mono text-primary-blue bg-blue-50 px-3 py-1 rounded-md hover:bg-blue-100 transition-colors"
               >
                 {'<Dev />'}
               </button>
             )}
-            
+
             {isAdmin && (
-              <button 
+              <button
                 onClick={logout}
                 className="text-sm font-mono text-red-500 bg-red-50 px-3 py-1 rounded-md hover:bg-red-100 transition-colors"
               >
                 Logout Admin
               </button>
             )}
-          </div>
 
-          <div className="hidden md:block">
-            <a href="/#kontak">
-              <Button>Kontak</Button>
+            <a
+              href="/#kontak"
+              onClick={() => setActive("Kontak")}
+              className="text-sm font-bold px-12 py-3 rounded-full transition-all shadow-sm hover:shadow-md hover:opacity-90"
+              style={{ background: 'linear-gradient(to right, #647ED4, #4966D4)', color: 'white' }}
+            >
+              Kontak
             </a>
           </div>
         </div>
@@ -117,7 +122,7 @@ export function Navbar() {
         <form onSubmit={handleLoginSubmit} className="space-y-6">
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-2">Enter Access Key</label>
-            <input 
+            <input
               type="password"
               value={adminKey}
               onChange={(e) => setAdminKey(e.target.value)}
